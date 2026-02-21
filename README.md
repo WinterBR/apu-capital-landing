@@ -48,9 +48,9 @@ Policies configuradas:
  https://apu-capital-landing.vercel.app/#cenario
 
 2.Baixar ou clonar o repositório:
- git clone https://github.com/WinterBR/apu-capital-landing.git
- npm install
- npm run dev
+ - git clone https://github.com/WinterBR/apu-capital-landing.git
+ - npm install
+ - npm run dev
 
  **detalhe importante**
 Quando for preencher o CPF, use um CPF válido, seja um verdadeiro ou de um gerador de CPF, caso contrário ele não sera aceito
