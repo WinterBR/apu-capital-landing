@@ -9,13 +9,12 @@ RLS foi habilitado na tabela.
 
 Policies configuradas:
 - **INSERT permitido para `anon`** → permite envio do formulário público:
-    create policy "Allow public insert"
-  
-    on "apu"."t_leads"
-    to anon
-    with check (
-      true
-    );
+- create policy "Allow public insert"
+- on "apu"."t_leads"
+- to anon
+- with check (
+-     true
+- );
 - **SELECT permitido apenas para `authenticated`** → apenas usuários autenticados podem visualizar os leads:
     create policy "Allow select only for authenticated users"
     on "apu"."t_leads"
