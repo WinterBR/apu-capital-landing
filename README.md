@@ -52,9 +52,9 @@ Policies configuradas:
  - npm install
  - npm run dev
 
- **detalhe importante**
-Quando for preencher o CPF, use um CPF válido, seja um verdadeiro ou de um gerador de CPF, caso contrário ele não sera aceito
-Os dados podem ser conferidos na tabela apu.t_leads no Supabase, foi mandado um invite para fazer parte do minha equipe no supabase.
+ **detalhes importantes**
+ - Quando for preencher o CPF, use um CPF válido, seja um verdadeiro ou de um gerador de CPF, caso contrário ele não sera aceito
+ - Os dados podem ser conferidos na tabela apu.t_leads no Supabase, foi mandado um invite para fazer parte do minha equipe no supabase.
 
  # O que faria diferente com mais tempo
 
