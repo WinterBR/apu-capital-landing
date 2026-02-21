@@ -10,6 +10,7 @@ RLS foi habilitado na tabela.
 Policies configuradas:
 - **INSERT permitido para `anon`** → permite envio do formulário público:
     create policy "Allow public insert"
+  
     on "apu"."t_leads"
     to anon
     with check (
