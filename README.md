@@ -1,73 +1,64 @@
-# Welcome to your Lovable project
+# Apu Capital — Landing Page (Desafio Técnico)
 
-## Project info
+Landing page educativa sobre dolarização de carteira, desenvolvida com Lovable (frontend) + Supabase (backend)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+# Supabase (RLS e Policies)
 
-## How can I edit this code?
+Foi criado o schema "apu" com a tabela "t_leads", contendo dados do lead e dois campos "jsonb" ("atributos" e "tracking").
+RLS foi habilitado na tabela.
 
-There are several ways of editing your application.
+Policies configuradas:
+- **INSERT permitido para `anon`** → permite envio do formulário público:
+    create policy "Allow public insert"
+    on "apu"."t_leads"
+    to anon
+    with check (
+      true
+    );
+- **SELECT permitido apenas para `authenticated`** → apenas usuários autenticados podem visualizar os leads:
+    create policy "Allow select only for authenticated users"
+    on "apu"."t_leads"
+    to authenticated
+    using (
+      true
+    );
 
-**Use Lovable**
+# Campos "atributos" e "tracking"
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+ **atributos (jsonb):**  
+  Armazena dados complementares do lead.  
+  Atualmente envia:
+  json
+  { "perfil_investidor": "Conservador | Moderado | Arrojado" }
 
-Changes made via Lovable will be committed automatically to this repo.
+ **tracking (jsonb):**
+  Armazena dados de origem e navegação:
 
-**Use your preferred IDE**
+  {
+    "utm_source": "...",
+    "utm_medium": "...",
+    "utm_campaign": "...",
+    "referrer": "...",
+    "user_agent": "..."
+  }
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+ # Como rodar/testar
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1.Acessar na Vercel: 
+ https://apu-capital-landing.vercel.app/#cenario
 
-Follow these steps:
+2.Baixar ou clonar o repositório:
+ git clone https://github.com/WinterBR/apu-capital-landing.git
+ npm install
+ npm run dev
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+ **detalhe importante**
+Quando for preencher o CPF, use um CPF válido, seja um verdadeiro ou de um gerador de CPF, caso contrário ele não sera aceito
+Os dados podem ser conferidos na tabela apu.t_leads no Supabase, foi mandado um invite para fazer parte do minha equipe no supabase.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+ # O que faria diferente com mais tempo
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+ 1.Edge Function para validação server-side
+ 2.Painel administrativo autenticado
+ 3.Testes com Jest
+ 4.Integração com microsserviços (Java, Python, C#)
