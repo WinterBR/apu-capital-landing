@@ -16,31 +16,31 @@ Policies configuradas:
 -     true
 - );
 - **SELECT permitido apenas para `authenticated`** → apenas usuários autenticados podem visualizar os leads:
-    create policy "Allow select only for authenticated users"
-    on "apu"."t_leads"
-    to authenticated
-    using (
-      true
-    );
+- create policy "Allow select only for authenticated users"
+- on "apu"."t_leads"
+- to authenticated
+- using (
+-    true
+- );
 
 # Campos "atributos" e "tracking"
 
  **atributos (jsonb):**  
   Armazena dados complementares do lead.  
   Atualmente envia:
-  json
-  { "perfil_investidor": "Conservador | Moderado | Arrojado" }
+ - json
+ - { "perfil_investidor": "Conservador | Moderado | Arrojado" }
 
  **tracking (jsonb):**
   Armazena dados de origem e navegação:
 
-  {
-    "utm_source": "...",
-    "utm_medium": "...",
-    "utm_campaign": "...",
-    "referrer": "...",
-    "user_agent": "..."
-  }
+ - {
+ - "utm_source": "...",
+ - "utm_medium": "...",
+ - "utm_campaign": "...",
+ - "referrer": "...",
+ - "user_agent": "..."
+ - }
 
  # Como rodar/testar
 
@@ -58,7 +58,7 @@ Os dados podem ser conferidos na tabela apu.t_leads no Supabase, foi mandado um 
 
  # O que faria diferente com mais tempo
 
- 1.Edge Function para validação server-side
- 2.Painel administrativo autenticado
- 3.Testes com Jest
- 4.Integração com microsserviços (Java, Python, C#)
+ - 1.Edge Function para validação server-side
+ - 2.Painel administrativo autenticado
+ - 3.Testes com Jest
+ - 4.Integração com microsserviços (Java, Python, C#)
